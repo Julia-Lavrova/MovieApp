@@ -1,0 +1,1678 @@
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMovies (20180123110450)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "image" varchar(255), "release_year" varchar(255), "plot" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20180123110450"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateActors (20180123110628)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "actors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "image" varchar(255), "bio" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20180123110628"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateParts (20180123110719)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "parts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_id" integer, "actor_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.2ms)[0m  CREATE INDEX "index_parts_on_movie_id" ON "parts" ("movie_id")
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_parts_on_actor_id" ON "parts" ("actor_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20180123110719"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (24.2ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "George Timothy Clooney is an American actor, writer, producer, director, and activist. He has received three Golden Globe Awards for his ..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "George"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/george-clooney.jpg"], ["last_name", "Clooney"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Matthew Paige \"Matt\" Damon is an American actor, voice actor, screenwriter, producer, and philanthropist."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Matt"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/matt-damon.jpg"], ["last_name", "Damon"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "William Bradley \"Brad\" Pitt is an American actor and producer. He has received a Golden Globe Award, a Screen Actors Guild Award, and thr..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Brad"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/brad-pitt.jpg"], ["last_name", "Pitt"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Elliott Gould is an American actor. He began acting in Hollywood films during the 1960s, and has remained prolific ever since. "], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Elliot"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/elliot-gould.jpg"], ["last_name", "Gould"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Julia Fiona Roberts is an American actress and producer. She became a Hollywood star after headlining the romantic comedy Pretty Woman, w..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Julia"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/julia-roberts.jpg"], ["last_name", "Roberts"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Mark Robert Michael Wahlberg is an American actor, producer, model, and former rapper. He was known as Marky Mark in his earlier years, b..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Mark"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/mark-wahlberg.jpg"], ["last_name", "Wahlberg"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Marion Cotillard is a French actress, singer, songwriter, environmentalist and spokesperson for Greenpeace."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Marion"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/marion-cotillard.jpg"], ["last_name", "Cotillard"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Laurence John Fishburne III is an American actor, playwright, director, and producer. He is best known for his roles as Morpheus in the M..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Laurence"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/laurence-fishburne.jpg"], ["last_name", "Fishburne"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "David Jude Heyworth Law, known professionally as Jude Law, is an English actor, film producer and director. He began acting with the Nati..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Jude"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/jude-law.jpg"], ["last_name", "Law"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Gwyneth Kate Paltrow is an American actress, singer, and food writer. Paltrow gained early notice for her work in films such as the psych..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Gwyneth"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/gwyneth-paltrow.jpg"], ["last_name", "Paltrow"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Kate Elizabeth Winslet, CBE, is an English actress and singer. She is the recipient of an Academy Award, an Emmy Award, three Golden Glob..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Kate"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/kate-winslet.jpg"], ["last_name", "Winslet"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Bryan Lee Cranston is an American actor, voice actor, screenwriter, director and producer. Cranston is best known for portraying Walter W..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Bryan"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/bryan-cranston.jpg"], ["last_name", "Cranston"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Leonardo Wilhelm DiCaprio is an American actor and film producer. He has been nominated for ten Golden Globe Awards, winning two, and fo..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Leonardo"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/leonardo-dicaprio.jpg"], ["last_name", "DiCaprio"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "John Joseph \"Jack\" Nicholson is an American actor, film director, producer, and writer. Throughout his career, Nicholson has portrayed un..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Jack"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/jack-nicholson.jpg"], ["last_name", "Nicholson"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Joseph Leonard Gordon-Levitt is an American actor and filmmaker. As a child star, he appeared in the films A River Runs Through It, Angel..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Joseph"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/joseph-gordon-levitt.jpg"], ["last_name", "Gordon-Levitt"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Edward Thomas \"Tom\" Hardy is an English actor. Hardy's notable film roles include the science fiction film Star Trek: Nemesis, the Guy Ri..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Tom"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/tom-hardy.jpg"], ["last_name", "Hardy"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Cillian Murphy is an Irish actor of stage and screen. Since making his debut in his home country in the late 1990s, Murphy has also becom..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Cillian"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/cillian-murphy.jpg"], ["last_name", "Murphy"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Christian Charles Philip Bale is an English actor. He has starred in both blockbuster films and smaller projects from independent produce..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Christian"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/christian-bale.jpg"], ["last_name", "Bale"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Morgan Freeman is an American actor, film director, and narrator. Freeman has received Academy Award nominations for his performances in ..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Morgan"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/morgan-freeman.jpg"], ["last_name", "Freeman"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Robert John Downey Jr. is an American actor, producer, and singer. Making his screen debut at the age of five, appearing in his father Ro..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Robert"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/rdj.jpg"], ["last_name", "Downey Jr."], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Terrence Dashon Howard is an American actor and singer. Having his first major role in the 1995 film Dead Presidents, and Mr. Holland's O..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Terrence"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/terrence-howard.jpg"], ["last_name", "Howard"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Jeffrey Leon \"Jeff\" Bridges is an American actor, country musician, and producer. He comes from a well-known acting family and began his ..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Jeff"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/jeff-bridges.jpg"], ["last_name", "Bridges"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Rachel Anne McAdams is a Canadian actress. After graduating from a four-year theatre program at York University in 2001, she initially wo..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Rachel"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/rachel-mcadams.jpg"], ["last_name", "McAdams"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Mark Strong is an English film and television actor. He is best known for his role in the television series Our Friends in the North and ..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Mark"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/mark-strong.jpg"], ["last_name", "Strong"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Diane Lane is an American actress. Born and raised in New York City, Lane made her screen debut in George Roy Hill's 1979 film A Little R..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Diane"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/diane-lane.jpg"], ["last_name", "Lane"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Ellen Philpotts-Page, known professionally as Ellen Page, is a Canadian actress. She started her career in Canada with roles in the telev..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Ellen"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/ellen-page.jpg"], ["last_name", "Page"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Anne Jacqueline Hathaway is an American actress, singer, and producer. After several stage roles, she appeared in the 1999 television ser..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Anne"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/anne-hathaway.jpg"], ["last_name", "Hathaway"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Sir Michael Caine, CBE is an English actor and author. Renowned for his distinctive Cockney accent, Caine has appeared in over 115 films ..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Michael"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/michael-caine.jpg"], ["last_name", "Caine"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Natalie Portman is an Israeli-born American actress, producer, and director. Her first role was in the 1994 action thriller Lon: The Pr..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Natalie"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/natalie-portman.png"], ["last_name", "Portman"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Clive Owen is an English actor who first gained recognition in the United Kingdom for playing the lead role in the ITV series Chancer fro..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Clive"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/clive-owen.jpg"], ["last_name", "Owen"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Matthew David McConaughey is an American actor and producer. He first gained notice for his breakout role in the coming-of-age comedy Daz..."], ["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["first_name", "Matthew"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/matthew-mcconaughey.jpg"], ["last_name", "McConaughey"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/oceans-11.jpg"], ["plot", "Dapper Danny Ocean (George Clooney) is a man of action. Less than 24 hours into his parole from a New Jersey penitentiary, the wry, chari..."], ["release_year", "2001"], ["title", "Ocean's 11"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/the-perfect-storm.jpg"], ["plot", "Based on a true story, the film tells of the courageous men and women who risk their lives every working day, pitting their fishing boats..."], ["release_year", "2000"], ["title", "The Perfect Storm"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/contagion.jpg"], ["plot", "When Beth Emhoff (Gwyneth Paltrow) returns to Minnesota from a Hong Kong business trip, she attributes the malaise she feels to jet lag ..."], ["release_year", "2011"], ["title", "Contagion"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/the-departed.jpg"], ["plot", "South Boston cop Billy Costigan (Leonardo DiCaprio) goes under cover to infiltrate the organization of gangland chief Frank Costello (Jac..."], ["release_year", "2006"], ["title", "The Departed"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/inception.jpg"], ["plot", "Dom Cobb (Leonardo DiCaprio) is a thief with the rare ability to enter people's dreams and steal their secrets from their subconscious ..."], ["release_year", "2010"], ["title", "Inception"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/dark-knight-rises.jpg"], ["plot", "It has been eight years since Batman (Christian Bale), in collusion with Commissioner Gordon (Gary Oldman), vanished into the night. Assu..."], ["release_year", "2012"], ["title", "The Dark Knight Rises"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/iron-man.jpg"], ["plot", "A billionaire industrialist and genius inventor, Tony Stark (Robert Downey Jr.), is conducting weapons tests overseas, but terrorists kid..."], ["release_year", "2008"], ["title", "Iron Man"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/sherlock-holmes.jpg"], ["plot", "When a string of brutal murders terrorizes London, it doesn't take long for legendary detective Sherlock Holmes (Robert Downey Jr.) and ..."], ["release_year", "2009"], ["title", "Sherlock Holmes"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/closer.jpg"], ["plot", "Alice (Natalie Portman), who has moved to London, meets Dan (Jude Law) on the street. While looking at him, a taxi hits her. After taking ..."], ["release_year", "2004"], ["title", "Closer"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/interstellar.jpg"], ["plot", "In Earth's future, a global crop blight and second Dust Bowl are slowly rendering the planet uninhabitable. Professor Brand (Michael Cai..."], ["release_year", "2014"], ["title", "Interstellar"], ["updated_at", Tue, 23 Jan 2018 12:41:31 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-23 16:20:35 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/railties-4.0.2/lib/rails/templates/rails/welcome/index.html.erb (2.4ms)
+Completed 200 OK in 30ms (Views: 17.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/moves" for 127.0.0.1 at 2018-01-23 16:22:41 +0300
+
+ActionController::RoutingError (No route matches [GET] "/moves"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/julialavrova/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/julialavrova/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/julialavrova/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.7ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.7ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (74.1ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2018-01-23 16:22:55 +0300
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.4ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 328ms (Views: 325.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 16:22:55 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 16:22:55 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 16:22:55 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 16:22:55 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 16:22:55 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 16:22:55 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 16:22:55 +0300
+
+
+Started GET "/movies" for 127.0.0.1 at 2018-01-23 16:23:24 +0300
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2018-01-23 17:06:43 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.4ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 66ms (Views: 55.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 17:06:43 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 17:06:44 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 17:06:44 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 17:06:44 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 17:06:44 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 17:06:44 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 17:06:44 +0300
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2018-01-23 17:25:22 +0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.9ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 13ms
+
+NoMethodError (undefined method `actors' for #<Movie:0x007ff1fa8ef730>):
+  app/controllers/movies_controller.rb:8:in `show'
+
+
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (82.1ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2018-01-23 17:35:21 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.4ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 500 Internal Server Error in 31ms
+
+NoMethodError (undefined method `actors' for #<Movie:0x007ff31f113068>):
+  app/controllers/movies_controller.rb:8:in `show'
+
+
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (92.6ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2018-01-23 17:35:26 +0300
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 318ms (Views: 317.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 17:35:26 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 17:35:26 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 17:35:26 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 17:35:26 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 17:35:26 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 17:35:26 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 17:35:26 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 17:35:26 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 17:35:26 +0300
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2018-01-23 17:35:37 +0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `actors' for #<Movie:0x007ff31cdda8a8>):
+  app/controllers/movies_controller.rb:8:in `show'
+
+
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (77.9ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2018-01-23 17:36:19 +0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.6ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 19ms
+
+NoMethodError (undefined method `actors' for #<Movie:0x007ff31cb0b640>):
+  app/controllers/movies_controller.rb:8:in `show'
+
+
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.9ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.7ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (131.6ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2018-01-23 17:36:20 +0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `actors' for #<Movie:0x007ff31f0a3b28>):
+  app/controllers/movies_controller.rb:8:in `show'
+
+
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (107.4ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2018-01-23 17:36:47 +0300
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 17:36:47 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 17:36:47 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 17:36:47 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 17:36:47 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 17:36:47 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 17:36:47 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 17:36:47 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 17:36:47 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 17:36:47 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 17:36:47 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 17:36:47 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 17:36:47 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 17:36:47 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 17:36:47 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 17:36:47 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 17:36:47 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 17:36:47 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 17:36:47 +0300
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2018-01-23 17:52:29 +0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mActor Load (2.6ms)[0m  [1mSELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = ?[0m  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 77ms (Views: 20.6ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/actors" for 127.0.0.1 at 2018-01-23 18:00:30 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ActorsController#index as HTML
+  [1m[35mActor Load (0.9ms)[0m  SELECT "actors".* FROM "actors"
+  Rendered actors/index.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 76ms (Views: 60.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:00:30 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:00:30 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:00:30 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:00:30 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:00:30 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:00:30 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:00:30 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:00:30 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:00:30 +0300
+
+
+Started GET "/actors" for 127.0.0.1 at 2018-01-23 18:18:41 +0300
+Processing by ActorsController#index as HTML
+  [1m[36mActor Load (2.1ms)[0m  [1mSELECT "actors".* FROM "actors"[0m
+  Rendered actors/index.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 39ms (Views: 32.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:18:42 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:18:42 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:18:42 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:18:42 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:18:42 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:18:42 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:18:42 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:18:42 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:18:42 +0300
+
+
+Started GET "/actors" for 127.0.0.1 at 2018-01-23 18:18:53 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ActorsController#index as HTML
+  [1m[35mActor Load (0.3ms)[0m  SELECT "actors".* FROM "actors"
+  Rendered actors/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 76ms (Views: 59.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:18:54 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:18:54 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:18:54 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:18:54 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:18:54 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:18:54 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:18:54 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:18:54 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:18:54 +0300
+
+
+Started GET "/actors" for 127.0.0.1 at 2018-01-23 18:45:29 +0300
+Processing by ActorsController#index as HTML
+  [1m[36mActor Load (1.2ms)[0m  [1mSELECT "actors".* FROM "actors"[0m
+  Rendered actors/index.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 34ms (Views: 29.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:45:29 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:45:29 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:45:29 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:45:29 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:45:29 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:45:29 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:45:29 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:45:29 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:45:29 +0300
+
+
+Started GET "/actors" for 127.0.0.1 at 2018-01-23 18:45:52 +0300
+Processing by ActorsController#index as HTML
+  [1m[35mActor Load (0.8ms)[0m  SELECT "actors".* FROM "actors"
+  Rendered actors/index.html.erb within layouts/application (27.0ms)
+Completed 200 OK in 44ms (Views: 42.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:45:52 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:45:52 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:45:52 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:45:52 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:45:52 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:45:52 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:45:52 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:45:52 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:45:52 +0300
+
+
+Started GET "/actors" for 127.0.0.1 at 2018-01-23 18:45:54 +0300
+Processing by ActorsController#index as HTML
+  [1m[36mActor Load (0.4ms)[0m  [1mSELECT "actors".* FROM "actors"[0m
+  Rendered actors/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:45:54 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:45:54 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:45:54 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:45:54 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:45:54 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:45:54 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:45:54 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:45:54 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:45:54 +0300
+
+
+Started GET "/actors/1" for 127.0.0.1 at 2018-01-23 18:46:14 +0300
+Processing by ActorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mActor Load (0.3ms)[0m  SELECT "actors".* FROM "actors" WHERE "actors"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mMovie Load (20.6ms)[0m  [1mSELECT "movies".* FROM "movies" INNER JOIN "parts" ON "movies"."id" = "parts"."movie_id" WHERE "parts"."actor_id" = ?[0m  [["actor_id", 1]]
+  Rendered actors/show.html.erb within layouts/application (31.7ms)
+Completed 200 OK in 79ms (Views: 22.4ms | ActiveRecord: 21.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:46:14 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:46:14 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:46:14 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:46:14 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:46:14 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:46:14 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:46:14 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:46:14 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:46:14 +0300
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-23 18:47:29 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/railties-4.0.2/lib/rails/templates/rails/welcome/index.html.erb (1.1ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/actors/1" for 127.0.0.1 at 2018-01-23 18:47:35 +0300
+Processing by ActorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mActor Load (0.1ms)[0m  SELECT "actors".* FROM "actors" WHERE "actors"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" INNER JOIN "parts" ON "movies"."id" = "parts"."movie_id" WHERE "parts"."actor_id" = ?[0m  [["actor_id", 1]]
+  Rendered actors/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:47:35 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:47:35 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:47:35 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:47:35 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:47:35 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:47:35 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:47:35 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:47:35 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:47:35 +0300
+
+
+Started GET "/actors/1" for 127.0.0.1 at 2018-01-23 18:48:06 +0300
+Processing by ActorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mActor Load (0.1ms)[0m  SELECT "actors".* FROM "actors" WHERE "actors"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" INNER JOIN "parts" ON "movies"."id" = "parts"."movie_id" WHERE "parts"."actor_id" = ?[0m  [["actor_id", 1]]
+  Rendered actors/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:48:06 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:48:06 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:48:06 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:48:06 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:48:06 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:48:06 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:48:06 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:48:06 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:48:06 +0300
+
+
+Started GET "/actors" for 127.0.0.1 at 2018-01-23 18:49:13 +0300
+Processing by ActorsController#index as HTML
+  [1m[35mActor Load (0.2ms)[0m  SELECT "actors".* FROM "actors"
+  Rendered actors/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 14ms (Views: 13.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:49:13 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:49:13 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:49:13 +0300
+
+
+Started GET "/actors" for 127.0.0.1 at 2018-01-23 18:51:40 +0300
+Processing by ActorsController#index as HTML
+  [1m[36mActor Load (0.2ms)[0m  [1mSELECT "actors".* FROM "actors"[0m
+  Rendered actors/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:51:40 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:51:40 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:51:40 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:51:40 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:51:40 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:51:40 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:51:40 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:51:40 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:51:40 +0300
+
+
+Started GET "/actors/1" for 127.0.0.1 at 2018-01-23 18:51:55 +0300
+Processing by ActorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mActor Load (0.1ms)[0m  SELECT "actors".* FROM "actors" WHERE "actors"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" INNER JOIN "parts" ON "movies"."id" = "parts"."movie_id" WHERE "parts"."actor_id" = ?[0m  [["actor_id", 1]]
+  Rendered actors/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:52:30 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:52:30 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:52:30 +0300
+
+
+Started GET "/actors/1" for 127.0.0.1 at 2018-01-23 18:52:33 +0300
+Processing by ActorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mActor Load (0.2ms)[0m  SELECT "actors".* FROM "actors" WHERE "actors"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" INNER JOIN "parts" ON "movies"."id" = "parts"."movie_id" WHERE "parts"."actor_id" = ?[0m  [["actor_id", 1]]
+  Rendered actors/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:52:33 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:52:33 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:52:33 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:52:33 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:52:33 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:52:33 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:52:33 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:52:33 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:52:33 +0300
+
+
+Started GET "/actors/1" for 127.0.0.1 at 2018-01-23 18:54:41 +0300
+Processing by ActorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mActor Load (0.2ms)[0m  SELECT "actors".* FROM "actors" WHERE "actors"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" INNER JOIN "parts" ON "movies"."id" = "parts"."movie_id" WHERE "parts"."actor_id" = ?[0m  [["actor_id", 1]]
+  Rendered actors/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 18ms (Views: 15.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:54:41 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:54:41 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:54:41 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:54:41 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:54:41 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:54:41 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:54:41 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:54:41 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:54:41 +0300
+
+
+Started GET "/movies" for 127.0.0.1 at 2018-01-23 18:54:48 +0300
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:54:48 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:54:48 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:54:48 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:54:48 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:54:48 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:54:48 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:54:48 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:54:48 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:54:48 +0300
+
+
+Started GET "/movies" for 127.0.0.1 at 2018-01-23 18:54:52 +0300
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (1.9ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 28ms (Views: 25.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2018-01-23 18:54:57 +0300
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2018-01-23 18:55:05 +0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mActor Load (2.7ms)[0m  SELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = ?  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 35ms (Views: 29.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2018-01-23 18:56:35 +0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mActor Load (0.1ms)[0m  SELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = ?  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:56:35 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:56:35 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:35 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:56:35 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:35 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:35 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:35 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:35 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:35 +0300
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2018-01-23 18:56:53 +0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mActor Load (0.1ms)[0m  SELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = ?  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:56:53 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:56:53 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:53 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:53 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:53 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:56:53 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:53 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:53 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:53 +0300
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2018-01-23 18:56:55 +0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mActor Load (0.1ms)[0m  SELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = ?  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:56:55 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:56:55 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:56:55 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:55 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:55 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:55 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:55 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:55 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:55 +0300
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2018-01-23 18:56:59 +0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mActor Load (0.1ms)[0m  SELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = ?  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:56:59 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:56:59 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:56:59 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:59 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:59 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:59 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:59 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:59 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:56:59 +0300
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2018-01-23 18:57:41 +0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mActor Load (0.1ms)[0m  SELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = ?  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:57:42 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:57:42 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:57:42 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:42 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:42 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:42 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:42 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:42 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:42 +0300
+
+
+Started GET "/movies/2" for 127.0.0.1 at 2018-01-23 18:57:46 +0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mActor Load (0.1ms)[0m  SELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = ?  [["movie_id", 2]]
+  Rendered movies/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:57:46 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:57:46 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:46 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:46 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:57:46 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:46 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:47 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:47 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:47 +0300
+
+
+Started GET "/movies/3" for 127.0.0.1 at 2018-01-23 18:57:49 +0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35mActor Load (0.1ms)[0m  SELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = ?  [["movie_id", 3]]
+  Rendered movies/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:57:49 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:57:49 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:57:49 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:49 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:49 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:49 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:49 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:49 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:49 +0300
+
+
+Started GET "/movies/4" for 127.0.0.1 at 2018-01-23 18:57:52 +0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "4"]]
+  [1m[35mActor Load (0.1ms)[0m  SELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = ?  [["movie_id", 4]]
+  Rendered movies/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:57:52 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:57:52 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:57:52 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:52 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:52 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:52 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:52 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:52 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:52 +0300
+
+
+Started GET "/movies/5" for 127.0.0.1 at 2018-01-23 18:57:56 +0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mActor Load (0.1ms)[0m  SELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = ?  [["movie_id", 5]]
+  Rendered movies/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:57:56 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:57:56 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:56 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:56 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:56 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:56 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:56 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:57:56 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:57:56 +0300
+
+
+Started GET "/movies/20" for 127.0.0.1 at 2018-01-23 18:58:00 +0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "20"]]
+Completed 404 Not Found in 1ms
+
+ActiveRecord::RecordNotFound (Couldn't find Movie with id=20):
+  app/controllers/movies_controller.rb:7:in `show'
+
+
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (66.2ms)
+
+
+Started GET "/movies/10" for 127.0.0.1 at 2018-01-23 18:58:05 +0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "10"]]
+  [1m[36mActor Load (0.1ms)[0m  [1mSELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = ?[0m  [["movie_id", 10]]
+  Rendered movies/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 10ms (Views: 7.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 18:58:05 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 18:58:05 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 18:58:05 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 18:58:05 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 18:58:05 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 18:58:05 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 18:58:05 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 18:58:05 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 18:58:05 +0300
+
+
+Started GET "/movies/10" for 127.0.0.1 at 2018-01-23 19:01:09 +0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "10"]]
+  [1m[36mActor Load (0.2ms)[0m  [1mSELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = ?[0m  [["movie_id", 10]]
+  Rendered movies/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 25ms (Views: 8.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 19:01:09 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 19:01:09 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 19:01:09 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 19:01:09 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 19:01:09 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 19:01:09 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 19:01:09 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 19:01:09 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 19:01:09 +0300
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-23 19:01:25 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/julialavrova/.rvm/gems/ruby-2.2.3/gems/railties-4.0.2/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2018-01-23 19:02:15 +0300
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 19:02:15 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 19:02:15 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 19:02:15 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 19:02:15 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 19:02:15 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 19:02:15 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 19:02:15 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 19:02:15 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 19:02:15 +0300
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2018-01-23 19:02:21 +0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mActor Load (0.2ms)[0m  SELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = ?  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 0.3ms)
+  [1m[36mMovie Load (1.3ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies"
+  [1m[36mMovie Load (23.4ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMovie Load (0.1ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mActor Load (0.2ms)[0m  SELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mActor Load (0.1ms)[0m  SELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = ?  [["movie_id", 1]]
+  [1m[36mActor Load (0.2ms)[0m  [1mSELECT "actors".* FROM "actors"[0m
+  [1m[35mActor Load (0.2ms)[0m  SELECT "actors".* FROM "actors" LIMIT 1
+  [1m[36mActor Load (0.2ms)[0m  [1mSELECT "actors".* FROM "actors" LIMIT 1[0m
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMovies (20180123110450)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "image" varchar(255), "release_year" varchar(255), "plot" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20180123110450"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateActors (20180123110628)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "actors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "image" varchar(255), "bio" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20180123110628"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateParts (20180123110719)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "parts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_id" integer, "actor_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_parts_on_movie_id" ON "parts" ("movie_id")
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_parts_on_actor_id" ON "parts" ("actor_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20180123110719"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.9ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "George Timothy Clooney is an American actor, writer, producer, director, and activist. He has received three Golden Globe Awards for his ..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "George"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/george-clooney.jpg"], ["last_name", "Clooney"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Matthew Paige \"Matt\" Damon is an American actor, voice actor, screenwriter, producer, and philanthropist."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Matt"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/matt-damon.jpg"], ["last_name", "Damon"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "William Bradley \"Brad\" Pitt is an American actor and producer. He has received a Golden Globe Award, a Screen Actors Guild Award, and thr..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Brad"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/brad-pitt.jpg"], ["last_name", "Pitt"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Elliott Gould is an American actor. He began acting in Hollywood films during the 1960s, and has remained prolific ever since. "], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Elliot"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/elliot-gould.jpg"], ["last_name", "Gould"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Julia Fiona Roberts is an American actress and producer. She became a Hollywood star after headlining the romantic comedy Pretty Woman, w..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Julia"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/julia-roberts.jpg"], ["last_name", "Roberts"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Mark Robert Michael Wahlberg is an American actor, producer, model, and former rapper. He was known as Marky Mark in his earlier years, b..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Mark"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/mark-wahlberg.jpg"], ["last_name", "Wahlberg"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Marion Cotillard is a French actress, singer, songwriter, environmentalist and spokesperson for Greenpeace."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Marion"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/marion-cotillard.jpg"], ["last_name", "Cotillard"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Laurence John Fishburne III is an American actor, playwright, director, and producer. He is best known for his roles as Morpheus in the M..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Laurence"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/laurence-fishburne.jpg"], ["last_name", "Fishburne"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "David Jude Heyworth Law, known professionally as Jude Law, is an English actor, film producer and director. He began acting with the Nati..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Jude"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/jude-law.jpg"], ["last_name", "Law"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Gwyneth Kate Paltrow is an American actress, singer, and food writer. Paltrow gained early notice for her work in films such as the psych..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Gwyneth"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/gwyneth-paltrow.jpg"], ["last_name", "Paltrow"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Kate Elizabeth Winslet, CBE, is an English actress and singer. She is the recipient of an Academy Award, an Emmy Award, three Golden Glob..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Kate"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/kate-winslet.jpg"], ["last_name", "Winslet"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Bryan Lee Cranston is an American actor, voice actor, screenwriter, director and producer. Cranston is best known for portraying Walter W..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Bryan"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/bryan-cranston.jpg"], ["last_name", "Cranston"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Leonardo Wilhelm DiCaprio is an American actor and film producer. He has been nominated for ten Golden Globe Awards, winning two, and fo..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Leonardo"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/leonardo-dicaprio.jpg"], ["last_name", "DiCaprio"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "John Joseph \"Jack\" Nicholson is an American actor, film director, producer, and writer. Throughout his career, Nicholson has portrayed un..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Jack"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/jack-nicholson.jpg"], ["last_name", "Nicholson"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Joseph Leonard Gordon-Levitt is an American actor and filmmaker. As a child star, he appeared in the films A River Runs Through It, Angel..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Joseph"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/joseph-gordon-levitt.jpg"], ["last_name", "Gordon-Levitt"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Edward Thomas \"Tom\" Hardy is an English actor. Hardy's notable film roles include the science fiction film Star Trek: Nemesis, the Guy Ri..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Tom"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/tom-hardy.jpg"], ["last_name", "Hardy"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Cillian Murphy is an Irish actor of stage and screen. Since making his debut in his home country in the late 1990s, Murphy has also becom..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Cillian"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/cillian-murphy.jpg"], ["last_name", "Murphy"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Christian Charles Philip Bale is an English actor. He has starred in both blockbuster films and smaller projects from independent produce..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Christian"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/christian-bale.jpg"], ["last_name", "Bale"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Morgan Freeman is an American actor, film director, and narrator. Freeman has received Academy Award nominations for his performances in ..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Morgan"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/morgan-freeman.jpg"], ["last_name", "Freeman"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Robert John Downey Jr. is an American actor, producer, and singer. Making his screen debut at the age of five, appearing in his father Ro..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Robert"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/rdj.jpg"], ["last_name", "Downey Jr."], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Terrence Dashon Howard is an American actor and singer. Having his first major role in the 1995 film Dead Presidents, and Mr. Holland's O..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Terrence"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/terrence-howard.jpg"], ["last_name", "Howard"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Jeffrey Leon \"Jeff\" Bridges is an American actor, country musician, and producer. He comes from a well-known acting family and began his ..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Jeff"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/jeff-bridges.jpg"], ["last_name", "Bridges"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Rachel Anne McAdams is a Canadian actress. After graduating from a four-year theatre program at York University in 2001, she initially wo..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Rachel"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/rachel-mcadams.jpg"], ["last_name", "McAdams"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Mark Strong is an English film and television actor. He is best known for his role in the television series Our Friends in the North and ..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Mark"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/mark-strong.jpg"], ["last_name", "Strong"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Diane Lane is an American actress. Born and raised in New York City, Lane made her screen debut in George Roy Hill's 1979 film A Little R..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Diane"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/diane-lane.jpg"], ["last_name", "Lane"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Ellen Philpotts-Page, known professionally as Ellen Page, is a Canadian actress. She started her career in Canada with roles in the telev..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Ellen"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/ellen-page.jpg"], ["last_name", "Page"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Anne Jacqueline Hathaway is an American actress, singer, and producer. After several stage roles, she appeared in the 1999 television ser..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Anne"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/anne-hathaway.jpg"], ["last_name", "Hathaway"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Sir Michael Caine, CBE is an English actor and author. Renowned for his distinctive Cockney accent, Caine has appeared in over 115 films ..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Michael"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/michael-caine.jpg"], ["last_name", "Caine"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Natalie Portman is an Israeli-born American actress, producer, and director. Her first role was in the 1994 action thriller Lon: The Pr..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Natalie"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/natalie-portman.png"], ["last_name", "Portman"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Clive Owen is an English actor who first gained recognition in the United Kingdom for playing the lead role in the ITV series Chancer fro..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Clive"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/clive-owen.jpg"], ["last_name", "Owen"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Matthew David McConaughey is an American actor and producer. He first gained notice for his breakout role in the coming-of-age comedy Daz..."], ["created_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00], ["first_name", "Matthew"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/matthew-mcconaughey.jpg"], ["last_name", "McConaughey"], ["updated_at", Tue, 23 Jan 2018 16:09:04 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/oceans-11.jpg"], ["plot", "Dapper Danny Ocean (George Clooney) is a man of action. Less than 24 hours into his parole from a New Jersey penitentiary, the wry, chari..."], ["release_year", "2001"], ["title", "Ocean's 11"], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/the-perfect-storm.jpg"], ["plot", "Based on a true story, the film tells of the courageous men and women who risk their lives every working day, pitting their fishing boats..."], ["release_year", "2000"], ["title", "The Perfect Storm"], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/contagion.jpg"], ["plot", "When Beth Emhoff (Gwyneth Paltrow) returns to Minnesota from a Hong Kong business trip, she attributes the malaise she feels to jet lag ..."], ["release_year", "2011"], ["title", "Contagion"], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/the-departed.jpg"], ["plot", "South Boston cop Billy Costigan (Leonardo DiCaprio) goes under cover to infiltrate the organization of gangland chief Frank Costello (Jac..."], ["release_year", "2006"], ["title", "The Departed"], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/inception.jpg"], ["plot", "Dom Cobb (Leonardo DiCaprio) is a thief with the rare ability to enter people's dreams and steal their secrets from their subconscious ..."], ["release_year", "2010"], ["title", "Inception"], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/dark-knight-rises.jpg"], ["plot", "It has been eight years since Batman (Christian Bale), in collusion with Commissioner Gordon (Gary Oldman), vanished into the night. Assu..."], ["release_year", "2012"], ["title", "The Dark Knight Rises"], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/iron-man.jpg"], ["plot", "A billionaire industrialist and genius inventor, Tony Stark (Robert Downey Jr.), is conducting weapons tests overseas, but terrorists kid..."], ["release_year", "2008"], ["title", "Iron Man"], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/sherlock-holmes.jpg"], ["plot", "When a string of brutal murders terrorizes London, it doesn't take long for legendary detective Sherlock Holmes (Robert Downey Jr.) and ..."], ["release_year", "2009"], ["title", "Sherlock Holmes"], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/closer.jpg"], ["plot", "Alice (Natalie Portman), who has moved to London, meets Dan (Jude Law) on the street. While looking at him, a taxi hits her. After taking ..."], ["release_year", "2004"], ["title", "Closer"], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/interstellar.jpg"], ["plot", "In Earth's future, a global crop blight and second Dust Bowl are slowly rendering the planet uninhabitable. Professor Brand (Michael Cai..."], ["release_year", "2014"], ["title", "Interstellar"], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 1], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 1], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 2], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 1], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 3], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 1], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 4], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 1], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 5], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 1], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 1], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 2], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 6], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 2], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 25], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 2], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 7], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 3], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 8], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 3], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 9], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 3], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 10], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 3], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 11], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 3], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 12], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 3], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 4], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 3], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 2], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 3], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 2], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 4], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 13], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 4], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 14], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 4], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 6], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 4], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 13], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 5], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 26], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 5], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 15], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 5], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 16], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 5], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 7], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 5], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 17], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 5], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 28], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 5], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 18], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 6], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 19], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 6], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 28], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 6], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 16], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 6], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 7], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 6], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 17], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 6], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 15], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 6], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 27], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 6], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 20], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 7], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 21], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 7], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 22], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 7], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 10], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 7], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 20], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 8], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 9], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 8], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 23], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 8], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 24], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 8], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 5], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 9], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 9], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 9], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 29], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 9], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 30], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 9], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 31], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 10], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 27], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 10], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 28], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 10], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 2], ["created_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00], ["movie_id", 10], ["updated_at", Tue, 23 Jan 2018 16:09:05 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[36mMovie Load (1.7ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mActor Load (0.2ms)[0m  SELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = ?  [["movie_id", 1]]
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2018-01-23 19:09:36 +0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mActor Load (0.2ms)[0m  SELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = ?  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 31ms (Views: 14.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-23 19:09:36 +0300
+
+
+Started GET "/assets/actors.css?body=1" for 127.0.0.1 at 2018-01-23 19:09:36 +0300
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2018-01-23 19:09:36 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-23 19:09:36 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-23 19:09:36 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-23 19:09:36 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-23 19:09:36 +0300
+
+
+Started GET "/assets/actors.js?body=1" for 127.0.0.1 at 2018-01-23 19:09:36 +0300
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2018-01-23 19:09:36 +0300
